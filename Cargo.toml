@@ -1,0 +1,16 @@
+[package]
+name = "solana-program-simulator"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+crate-type = ["lib"]
+name = "solana_program_simulator"
+
+[dependencies]
+anchor-lang = "^0.30.1"
+solana-program = "^1.18.26"
+solana-sdk = "^1.18.26"
+solana-program-test = "^1.18.26"
+solana-banks-interface = "^1.18.26"
+borsh = "0.9.3"
