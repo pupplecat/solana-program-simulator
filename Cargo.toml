@@ -14,3 +14,7 @@ solana-sdk = "^1.18.26"
 solana-program-test = "^1.18.26"
 solana-banks-interface = "^1.18.26"
 borsh = "0.9.3"
+
+[dev-dependencies]
+tokio = "^1"
+anyhow = "^1"

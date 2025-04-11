@@ -37,13 +37,11 @@ solana-program-simulator = { git = "https://github.com/pupplecat/solana-program-
 Below is a simple example that starts the simulator, airdrops SOL, and processes an instruction:
 
 ```rust
-use solana_program_simulator::ProgramSimulator;
-use solana_program::instruction::Instruction;
-use solana_sdk::signature::{read_keypair_file, Keypair, Signature};
-use solana_sdk::pubkey::Pubkey;
-use solana_sdk::commitment_config::CommitmentConfig;
-use solana_program_test::ProgramTest;
 use anyhow::Result;
+use solana_program_simulator::ProgramSimulator;
+use solana_program_test::ProgramTest;
+use solana_sdk::pubkey::Pubkey;
+use solana_sdk::signer::Signer;
 
 #[tokio::main]
 async fn main() -> Result<()> {
@@ -65,7 +63,7 @@ async fn main() -> Result<()> {
 
     // Process the instruction.
     let signature = simulator
-        .process_ix_with_default_compute_limit(instruction, &[], None)
+        .process_ix_with_default_compute_limit(instruction, &[&funded_keypair], None)
         .await?;
     println!("Transaction signature: {}", signature);
 

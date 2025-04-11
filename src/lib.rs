@@ -3,7 +3,7 @@ use borsh::BorshDeserialize;
 use solana_banks_interface::{BanksTransactionResultWithSimulation, TransactionStatus};
 use solana_program::program_pack::Pack;
 use solana_program_test::{
-    BanksClientError, ProgramTestBanksClientExt, ProgramTestContext, ProgramTestError,
+    BanksClientError, ProgramTest, ProgramTestBanksClientExt, ProgramTestContext, ProgramTestError,
 };
 use solana_sdk::{
     account::Account,
@@ -27,6 +27,15 @@ pub struct ProgramSimulator {
 }
 
 impl ProgramSimulator {
+    /// Start a new ProgramSimulator from a `ProgramTest` instance.
+    pub async fn start_from_program_test(program_test: ProgramTest) -> ProgramSimulator {
+        let program_test_context = program_test.start_with_context().await;
+
+        ProgramSimulator {
+            program_test_context,
+        }
+    }
+
     /// Common helper to build and sign a transaction with default compute limit.
     async fn build_and_sign_tx(
         &mut self,
