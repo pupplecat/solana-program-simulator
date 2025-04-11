@@ -1,4 +1,3 @@
-use anchor_lang::{AnchorDeserialize, prelude::ProgramError};
 use borsh::BorshDeserialize;
 use solana_banks_interface::{BanksTransactionResultWithSimulation, TransactionStatus};
 use solana_program::program_pack::Pack;
@@ -10,14 +9,14 @@ use solana_sdk::{
     clock::Clock,
     compute_budget,
     genesis_config::GenesisConfig,
-    instruction::{Instruction, InstructionError},
+    instruction::Instruction,
     native_token::LAMPORTS_PER_SOL,
     program_pack::IsInitialized,
     pubkey::Pubkey,
     signature::{Keypair, Signature},
     signer::Signer,
     system_instruction,
-    transaction::{Transaction, TransactionError},
+    transaction::Transaction,
 };
 
 // Assume that ProgramSimulator is defined as before:
@@ -155,7 +154,8 @@ impl ProgramSimulator {
         Ok(account)
     }
 
-    pub async fn get_anchor_account_data<T: AnchorDeserialize>(
+    #[cfg(feature = "anchor")]
+    pub async fn get_anchor_account_data<T: anchor_lang::AnchorDeserialize>(
         &mut self,
         pubkey: Pubkey,
     ) -> Result<T, BanksClientError> {
@@ -261,16 +261,22 @@ impl ProgramSimulator {
     }
 }
 
-pub fn into_transaction_error<T: Into<anchor_lang::prelude::Error>>(error: T) -> TransactionError {
+#[cfg(feature = "anchor")]
+pub fn into_transaction_error<T: Into<anchor_lang::prelude::Error>>(
+    error: T,
+) -> solana_sdk::transaction::TransactionError {
     into_transaction_error_with_index(0, error)
 }
 
+#[cfg(feature = "anchor")]
 pub fn into_transaction_error_with_index<T: Into<anchor_lang::prelude::Error>>(
     instruction_index: u8,
     error: T,
-) -> TransactionError {
-    TransactionError::InstructionError(
+) -> solana_sdk::transaction::TransactionError {
+    solana_sdk::transaction::TransactionError::InstructionError(
         instruction_index,
-        InstructionError::from(u64::from(ProgramError::from(error.into()))),
+        solana_sdk::instruction::InstructionError::from(u64::from(
+            anchor_lang::prelude::ProgramError::from(error.into()),
+        )),
     )
 }
