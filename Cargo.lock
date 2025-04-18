@@ -59,7 +59,7 @@ version = "2.2.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "973a83d0d66d1f04647d1146a07736864f0742300b56bf2a5aadf5ce7b22fe47"
 dependencies = [
- "ahash 0.8.11",
+ "ahash",
  "solana-epoch-schedule",
  "solana-feature-set-interface",
  "solana-hash",
@@ -117,17 +117,6 @@ dependencies = [
  "solana-short-vec",
  "solana-signature",
  "solana-svm-transaction",
-]
-
-[[package]]
-name = "ahash"
-version = "0.7.8"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "891477e0c6a8957309ee5c45a6368af3ae14bb510732d2684ffa19af310920f9"
-dependencies = [
- "getrandom 0.2.15",
- "once_cell",
- "version_check",
 ]
 
 [[package]]
@@ -261,7 +250,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d5a24721da4ed67f0a1391cac27ea7e51c255cbd94cdcc6728a0aa56227628d0"
 dependencies = [
  "anchor-syn",
- "borsh-derive-internal 0.10.4",
+ "borsh-derive-internal",
  "proc-macro2",
  "quote",
  "syn 1.0.109",
@@ -728,16 +717,6 @@ dependencies = [
 
 [[package]]
 name = "borsh"
-version = "0.9.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "15bf3650200d8bffa99015595e10f1fbd17de07abbc25bb067da79e769939bfa"
-dependencies = [
- "borsh-derive 0.9.3",
- "hashbrown 0.11.2",
-]
-
-[[package]]
-name = "borsh"
 version = "0.10.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "115e54d64eb62cdebad391c19efc9dce4981c690c85a33a12199d99bb9546fee"
@@ -758,25 +737,12 @@ dependencies = [
 
 [[package]]
 name = "borsh-derive"
-version = "0.9.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6441c552f230375d18e3cc377677914d2ca2b0d36e52129fe15450a2dce46775"
-dependencies = [
- "borsh-derive-internal 0.9.3",
- "borsh-schema-derive-internal 0.9.3",
- "proc-macro-crate 0.1.5",
- "proc-macro2",
- "syn 1.0.109",
-]
-
-[[package]]
-name = "borsh-derive"
 version = "0.10.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "831213f80d9423998dd696e2c5345aba6be7a0bd8cd19e31c5243e13df1cef89"
 dependencies = [
- "borsh-derive-internal 0.10.4",
- "borsh-schema-derive-internal 0.10.4",
+ "borsh-derive-internal",
+ "borsh-schema-derive-internal",
  "proc-macro-crate 0.1.5",
  "proc-macro2",
  "syn 1.0.109",
@@ -797,31 +763,9 @@ dependencies = [
 
 [[package]]
 name = "borsh-derive-internal"
-version = "0.9.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5449c28a7b352f2d1e592a8a28bf139bc71afb0764a14f3c02500935d8c44065"
-dependencies = [
- "proc-macro2",
- "quote",
- "syn 1.0.109",
-]
-
-[[package]]
-name = "borsh-derive-internal"
 version = "0.10.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "65d6ba50644c98714aa2a70d13d7df3cd75cd2b523a2b452bf010443800976b3"
-dependencies = [
- "proc-macro2",
- "quote",
- "syn 1.0.109",
-]
-
-[[package]]
-name = "borsh-schema-derive-internal"
-version = "0.9.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "cdbd5696d8bfa21d53d9fe39a714a18538bad11492a42d066dbbc395fb1951c0"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -1892,20 +1836,11 @@ dependencies = [
 
 [[package]]
 name = "hashbrown"
-version = "0.11.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ab5ef0d4909ef3724cc8cce6ccc8572c5c817592e9285f5464f8e86f8bd3726e"
-dependencies = [
- "ahash 0.7.8",
-]
-
-[[package]]
-name = "hashbrown"
 version = "0.13.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "43a3c133739dddd0d2990f9a4bdf8eb4b21ef50e4851ca85ab661199821d510e"
 dependencies = [
- "ahash 0.8.11",
+ "ahash",
 ]
 
 [[package]]
@@ -4009,7 +3944,7 @@ version = "2.2.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "611e285c3d1c7ea383498a7a55d462a475614af9e3201fa9bf78a18b9f49ad67"
 dependencies = [
- "ahash 0.8.11",
+ "ahash",
  "bincode",
  "blake3",
  "bv",
@@ -4314,7 +4249,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b17a9aaf602cc61c84932675690fa61d711b5a4879789b74a3162ffcbd255177"
 dependencies = [
  "agave-feature-set",
- "ahash 0.8.11",
+ "ahash",
  "lazy_static",
  "log",
  "qualifier_attr",
@@ -4540,7 +4475,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "fcb844530eafa481dc45f434e1684b09fcb594b3a72896caa969ef53df1ed653"
 dependencies = [
  "agave-feature-set",
- "ahash 0.8.11",
+ "ahash",
  "lazy_static",
  "log",
  "solana-bincode",
@@ -4725,7 +4660,7 @@ version = "2.2.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "92f6c09cc41059c0e03ccbee7f5d4cc0a315d68ef0d59b67eb90246adfd8cc35"
 dependencies = [
- "ahash 0.8.11",
+ "ahash",
  "lazy_static",
  "solana-epoch-schedule",
  "solana-hash",
@@ -4739,7 +4674,7 @@ version = "4.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "02007757246e40f10aa936dae4fa27efbf8dbd6a59575a12ccc802c1aea6e708"
 dependencies = [
- "ahash 0.8.11",
+ "ahash",
  "solana-pubkey",
 ]
 
@@ -5191,7 +5126,7 @@ version = "2.2.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "97222a3fda48570754ce114e43ca56af34741098c357cb8d3cb6695751e60330"
 dependencies = [
- "ahash 0.8.11",
+ "ahash",
  "bincode",
  "bv",
  "caps",
@@ -5457,7 +5392,7 @@ version = "0.1.0"
 dependencies = [
  "anchor-lang",
  "anyhow",
- "borsh 0.9.3",
+ "borsh 1.5.7",
  "solana-banks-interface",
  "solana-program",
  "solana-program-test",
@@ -5764,7 +5699,7 @@ dependencies = [
  "agave-feature-set",
  "agave-precompiles",
  "agave-reserved-account-keys",
- "ahash 0.8.11",
+ "ahash",
  "aquamarine",
  "arrayref",
  "base64 0.22.1",
@@ -6290,7 +6225,7 @@ checksum = "095be71c750f85287f37366e1975236b08dff2e02ec482473c975868d67fc542"
 dependencies = [
  "agave-feature-set",
  "agave-precompiles",
- "ahash 0.8.11",
+ "ahash",
  "itertools 0.12.1",
  "log",
  "percentage",

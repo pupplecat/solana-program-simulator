@@ -1,5 +1,5 @@
 use anyhow::Result;
-use solana_program_simulator::ProgramSimulator;
+use solana_program_simulator::program_simulator::ProgramSimulator;
 use solana_program_test::ProgramTest;
 use solana_sdk::{pubkey::Pubkey, signer::Signer};
 
